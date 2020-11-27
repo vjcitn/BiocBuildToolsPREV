@@ -40,3 +40,4 @@ URL: https://vjcitn.github.io/BiocBuildTools/
 BugReports: https://github.com/vjcitn/BiocBuildTools/issues/new/choose
 VignetteBuilder: knitr
 DockerImage: vjcitn/biocbuildtools:latest
+BiocViews: Infrastructure, Software
