@@ -170,7 +170,7 @@ these types of dependency are provided in
 We can visualize the interdependencies of the small collection
 using `r BiocStyle::Biocpkg("BiocPkgTools")`.
 
-```{r  getg}
+```{r getg, fig.height=6}
 suppressMessages({
 library(BiocPkgTools)
 library(BiocBuildTools)
