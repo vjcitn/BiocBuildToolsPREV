@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Page not found (404) • BiocBuildTools</title>
+<title>a list of covr::package_coverage results, thinned for demonstration purposes, produced dec 2019 — cov_tab_demo • BiocBuildTools</title>
 
 
 <!-- jquery -->
@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
-<link rel="stylesheet" href="https://vjcitn.github.io/BiocBuildTools/bootstrap-toc.css">
-<script src="https://vjcitn.github.io/BiocBuildTools/bootstrap-toc.js"></script>
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
@@ -33,13 +33,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="https://vjcitn.github.io/BiocBuildTools/pkgdown.css" rel="stylesheet">
-<script src="https://vjcitn.github.io/BiocBuildTools/pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="Page not found (404)" />
+<meta property="og:title" content="a list of covr::package_coverage results, thinned for demonstration purposes, produced dec 2019 — cov_tab_demo" />
+<meta property="og:description" content="a list of covr::package_coverage results, thinned for demonstration purposes, produced dec 2019" />
 
 
 
@@ -68,7 +69,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-title-body">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -80,7 +81,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="https://vjcitn.github.io/BiocBuildTools/index.html">BiocBuildTools</a>
+        <a class="navbar-link" href="../index.html">BiocBuildTools</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
@@ -88,13 +89,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -104,10 +105,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/cicd1.html">Continuous integration and delivery approaches for Bioconductor</a>
+      <a href="../articles/cicd1.html">Continuous integration and delivery approaches for Bioconductor</a>
     </li>
     <li>
-      <a href="articles/gcp.html">Binary package production for GCP/AnVIL</a>
+      <a href="../articles/gcp.html">Binary package production for GCP/AnVIL</a>
     </li>
   </ul>
 </li>
@@ -130,23 +131,73 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Page not found (404)</h1>
+    <h1>a list of covr::package_coverage results, thinned for demonstration purposes, produced dec 2019</h1>
+    <small class="dont-index">Source: <a href='https://github.com/vjcitn/BiocBuildTools/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <div class="hidden name"><code>cov_tab_demo.Rd</code></div>
     </div>
 
-Content not found. Please use links in the navbar.
+    <div class="ref-description">
+    <p>a list of covr::package_coverage results, thinned for demonstration purposes, produced dec 2019</p>
+    </div>
 
+    <pre class="usage"><span class='va'>cov_tab_demo</span></pre>
+
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>list</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>cov_tab_demo</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>
+</div><div class='output co'>#&gt; $BiocFileCache
+#&gt; $BiocFileCache$overall
+#&gt; [1] 76.58582
+#&gt; 
+#&gt; $BiocFileCache$specific
+#&gt;        R/makeCachedActiveBinding.R                  R/sql_migration.R 
+#&gt;                            0.00000                           20.45455 
+#&gt;                           R/httr.R            R/BiocFileCache-class.R 
+#&gt;                           73.01587                           80.40816 
+#&gt;                      R/utilities.R R/makeBiocFileCacheFromDataFrame.R 
+#&gt;                           86.95652                           88.57143 
+#&gt;                            R/sql.R 
+#&gt;                           89.47368 
+#&gt; 
+#&gt; 
+#&gt; $bsseq
+#&gt; $bsseq$overall
+#&gt; [1] 34.12141
+#&gt; 
+#&gt; $bsseq$specific
+#&gt;       R/BSmooth.fstat.R       R/BSmooth.tstat.R     R/BSseqStat_class.R 
+#&gt;                 0.00000                 0.00000                 0.00000 
+#&gt;    R/BSseqTstat_class.R           R/dmrFinder.R            R/findLoci.R 
+#&gt;                 0.00000                 0.00000                 0.00000 
+#&gt;              R/fisher.R            R/getStats.R           R/gof_stats.R 
+#&gt;                 0.00000                 0.00000                 0.00000 
+#&gt;          R/hasGRanges.R            R/plotting.R        R/read.bsmooth.R 
+#&gt;                 0.00000                 0.00000                 0.00000 
+#&gt;     R/FWIRanges-class.R         R/BSseq_utils.R  R/DelayedArray_utils.R 
+#&gt;                14.28571                20.61856                29.31034 
+#&gt;        R/permutations.R               R/utils.R         R/BSseq-class.R 
+#&gt;                47.42268                56.00000                57.77778 
+#&gt;       R/collapseBSseq.R     R/FWGRanges-class.R          R/hdf5_utils.R 
+#&gt;                58.02469                69.00585                69.23077 
+#&gt;        R/read.bismark.R             R/BSmooth.R             R/combine.R 
+#&gt;                71.96262                82.35294                87.78626 
+#&gt; src/check_M_and_Cov.cpp            src/init.cpp           src/utils.cpp 
+#&gt;                90.47619               100.00000               100.00000 
+#&gt; 
+#&gt; </div></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
-
 
 
       <footer>

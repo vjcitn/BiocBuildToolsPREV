@@ -1,9 +1,11 @@
 pandoc: 2.7.3
-pkgdown: 1.5.1
+pkgdown: 1.6.1
 pkgdown_sha: ~
-articles: []
-last_built: 2020-07-22T23:13Z
+articles:
+  cicd1: cicd1.html
+  gcp: gcp.html
+last_built: 2020-11-27T12:30Z
 urls:
-  reference: https://seandavi.github.io/sars2pack/reference
-  article: https://seandavi.github.io/sars2pack/articles
+  reference: https://vjcitn.github.io/BiocBuildTools/reference
+  article: https://vjcitn.github.io/BiocBuildTools/articles
 

@@ -1,12 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://seandavi.github.io/sars2pack/index.html</loc>
+    <loc>https://vjcitn.github.io/BiocBuildTools/index.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/sars2pack/articles/HOWTO_BUILD_WORKSHOP.html</loc>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/PackageSet.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/sars2pack/articles/workshop_example.html</loc>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/add_dependencies-PackageSet-method.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/bbs_check_built.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/bioc_3.10_software_2020.03.17.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/bioc_coreset.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/bioc_software_packagelist_old.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/build1.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/build1_with_buildsink.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/cov_tab_demo.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/demo_rcmdchk_out.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/full_dep_opts.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/getpk.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/installed_r.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/local_gits_behind_bioc.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/local_gits_with_uninstalled_dependencies.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/populate_local_gits.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/rcc_to_dataframes.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/soft_021520.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/soft_2020_04_20.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/articles/cicd1.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/articles/gcp.html</loc>
   </url>
 </urlset>

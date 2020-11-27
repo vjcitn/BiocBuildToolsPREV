@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> • BuildABiocWorkshop2020</title>
+<title>Function reference • BiocBuildTools</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="" />
+<meta property="og:title" content="Function reference" />
 
 
 
@@ -80,8 +80,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">BuildABiocWorkshop2020</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <a class="navbar-link" href="../index.html">BiocBuildTools</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
 
@@ -104,17 +104,17 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/HOWTO_BUILD_WORKSHOP.html">How To Build A Workshop Package</a>
+      <a href="../articles/cicd1.html">Continuous integration and delivery approaches for Bioconductor</a>
     </li>
     <li>
-      <a href="../articles/workshop_example.html">An Example Workshop</a>
+      <a href="../articles/gcp.html">Binary package production for GCP/AnVIL</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/seandavi/BuildABiocWorkshop2020">
+  <a href="https://github.com/vjcitn/BiocBuildTools">
     <span class="fa fa-github"></span>
      
   </a>
@@ -143,7 +143,137 @@
       <col class="title" />
     </colgroup>
 
-    
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="PackageSet.html">PackageSet()</a></code> </p>
+        </td>
+        <td><p>constructor for PackageSet instances</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="add_dependencies-PackageSet-method.html">add_dependencies(<i>&lt;PackageSet&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>method for adding dependencies to PackageSet as determined by BiocPkgTools</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bbs_check_built.html">bbs_check_built()</a></code> </p>
+        </td>
+        <td><p>not exported, rely instead on rcmdcheck
+do check_built and clean up</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bioc_3.10_software_2020.03.17.html">bioc_3.10_software_2020.03.17</a></code> </p>
+        </td>
+        <td><p>a vector of package names needed for a fairly complete BBS run, 17 march 2020</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bioc_coreset.html">bioc_coreset()</a></code> </p>
+        </td>
+        <td><p>define a small collection of packages of interest</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bioc_software_packagelist_old.html">bioc_software_packagelist_old()</a></code> </p>
+        </td>
+        <td><p>get vector of Bioc software package names</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="build1.html">build1()</a></code> </p>
+        </td>
+        <td><p>prepare and build a package tarball, not exported because we use build1_with_buildsink to capture log</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="build1_with_buildsink.html">build1_with_buildsink()</a></code> </p>
+        </td>
+        <td><p>run build1 and capture the R CMD build log</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cov_tab_demo.html">cov_tab_demo</a></code> </p>
+        </td>
+        <td><p>a list of covr::package_coverage results, thinned for demonstration purposes, produced dec 2019</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="demo_rcmdchk_out.html">demo_rcmdchk_out</a></code> </p>
+        </td>
+        <td><p>a list of rcmdcheck::rcmdcheck results for demonstration purposes, produced dec 2019</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="full_dep_opts.html">full_dep_opts()</a></code> </p>
+        </td>
+        <td><p>a vector listing the key dependencies with correct orthography</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="getpk.html">getpk()</a></code> </p>
+        </td>
+        <td><p>use HTTPS to clone a package from Bioconductor git</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="installed_r.html">installed_r</a></code> </p>
+        </td>
+        <td><p>a vector of package names needed for a fairly complete BBS run, jul 7 2019</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="local_gits_behind_bioc.html">local_gits_behind_bioc()</a></code> </p>
+        </td>
+        <td><p>check all repos in a folder for version entry less than
+the one reported by BiocPkgTools::biocPkgList</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="local_gits_with_uninstalled_dependencies.html">local_gits_with_uninstalled_dependencies()</a></code> </p>
+        </td>
+        <td><p>not clear that this is needed
+provide a list of packages for which dependencies are not installed</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="populate_local_gits.html">populate_local_gits()</a></code> </p>
+        </td>
+        <td><p>use git via BiocBBSpack::getpk to retrieve sources into a folder</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rcc_to_dataframes.html">rcc_to_dataframes()</a></code> </p>
+        </td>
+        <td><p>produce list of data.frames for storage of R CMD check results in SQLite</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="soft_021520.html">soft_021520</a></code> </p>
+        </td>
+        <td><p>a vector of package names needed for a fairly complete BBS run, 15 feb 2020</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="soft_2020_04_20.html">soft_2020_04_20</a></code> </p>
+        </td>
+        <td><p>a vector of package names needed for a fairly complete BBS run, 15 feb 2020</p></td>
+      </tr>
+    </tbody>
     </table>
   </div>
 
@@ -157,11 +287,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sean Davis.</p>
+  <p>Developed by Vincent Carey.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
