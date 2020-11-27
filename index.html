@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">BiocBuildTools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -93,57 +93,23 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="buildabiocworkshop2020" class="section level1">
+<div id="biocbuildtools" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#buildabiocworkshop2020" class="anchor"></a>BuildABiocWorkshop2020</h1></div>
-<p>This package is a template for building a Bioconductor 2020 workshop. The package includes Github actions to:</p>
-<ol>
-<li>Set up bioconductor/bioconductor_docker:devel on Github resources</li>
-<li>Install package dependencies for your package (based on the <code>DESCRIPTION</code> file)</li>
-<li>Run <code><a href="https://rdrr.io/pkg/rcmdcheck/man/rcmdcheck.html">rcmdcheck::rcmdcheck</a></code>
-</li>
-<li>Build a pkgdown website and push it to github pages</li>
-<li>Build a docker image with the installed package and dependencies</li>
-</ol>
-<div id="responsibilities" class="section level2">
+<a href="#biocbuildtools" class="anchor"></a>BiocBuildTools</h1></div>
+<p>This software and pkgdown web site was developed in conjunction with a Chan-Zuckerberg Initiative Essential Open Source Software project, “Bioconductor Build System”, SVCF Grant 183436.</p>
+<div id="objectives" class="section level2">
 <h2 class="hasAnchor">
-<a href="#responsibilities" class="anchor"></a>Responsibilities</h2>
-<p>This year, package authors will be primarily responsible for:</p>
-<ol>
-<li>Creating a landing site of their choosing for their workshops (a website). This website should be listed in the <code>DESCRIPTION</code> file as the <code>URL</code>.</li>
-<li>Creating a docker account and image that will contain workshop materials and the installed packages necessary to run those materials. The name of the resulting docker image, including “tag” if desired, should be listed in a non-standard tag, <code>DockerImage:</code> in the <code>DESCRIPTION</code> file.</li>
-</ol>
-<p>Both of those tasks can be accomplished using the Github actions included in this template package. The vignette accompanying this package describes how to accomplish both of these tasks.</p>
-</div>
-<div id="details" class="section level2">
-<h2 class="hasAnchor">
-<a href="#details" class="anchor"></a>Details</h2>
-<p>For detailed instructions, see the <code>How to build a workshop</code> article/vignette.</p>
-</div>
-<div id="results-of-successful-deployment" class="section level2">
-<h2 class="hasAnchor">
-<a href="#results-of-successful-deployment" class="anchor"></a>Results of successful deployment</h2>
+<a href="#objectives" class="anchor"></a>Objectives</h2>
+<p>An overview can be found at the <a href="https://docs.google.com/presentation/d/1EOrNomN7hVOfvZFR06bV6I4aZR9sQo9CCyDMlcg64Wk/edit?usp=sharing">Feb 2020 EOSS lightning talk slide set</a></p>
+<p>The project plan is</p>
+<p>The basic goals of this work are (derived from EOSS grant text):</p>
 <ul>
-<li>A working docker image that contains the installed package and dependencies.</li>
-<li>An up-to-date <code>pkgdown</code> website at <a href="https://YOURUSERNAME.github.io/YOURREPOSITORYNAME/" class="uri">https://YOURUSERNAME.github.io/YOURREPOSITORYNAME/</a>
-</li>
-<li>Docker image will be tagged with <code>latest</code>, <code>sha-XXXXXX</code> where <code>XXXXXX</code> is the hash of the current <code>master</code> commit, and <code>master</code>.</li>
+<li>G1: Source acquisition. All Bioconductor packages are managed in git repositories owned by the Bioconductor project. All contributors consent to this arrangement, which allows core developers to ensure that versioning protocols are fully implemented, and to provide solutions to systemic problems when such arise. Contributors receive push privileges to the main repository and may use git and/or github or other repository management systems as they prefer. We will obtain the full list of packages in current release (a fixed list) and devel (a rolling list as contributions are admitted) using the recently developed BiocPkgTools package. With these lists, git repositories for sources are cloned to the BBS main node.</li>
+<li>G2: Builder infrastructure provisioning. R, Bioconductor packages, and CRAN packages that they depend upon, make use of various runtime libraries for numerical analysis, graphics, text processing. At present we count over 1600 Ubuntu packages required to build R, CRAN dependencies of Bioconductor packages, and the Bioconductor packages themselves. This endowment process for the main build machine will be governed by ansible cookbooks.</li>
+<li>G3: R image for builder. An instance of R capable of building all Bioconductor software packages will itself include several thousand CRAN packages. As Bioconductor package dependencies are resolved, the R image for the builder will include an increasing number of Bioconductor packages. The resulting image of R should be highly stable, in that relatively few packages will be changing each time the package set is built.</li>
+<li>G4: Tarball and log generation. R CMD build is run on each source package and the build log is recorded for presentation on the build system platform. R CMD check is run to ensure all examples, unit tests, and vignettes succeed, to verify that basic development guidelines are met, and to report on guideline non-compliance and on exceptional events. The check logs are recorded for presentation on the build system platform. See Figure 1 for an overview of the platform-specific package build/check event counts.</li>
+<li>G5: Failure analysis, communication, and repair. Package failures may arise from developer error, problems propagated from faults in other packages, and from problems in BBS environment and infrastructure.</li>
 </ul>
-</div>
-<div id="to-use-the-resulting-image" class="section level2">
-<h2 class="hasAnchor">
-<a href="#to-use-the-resulting-image" class="anchor"></a>To use the resulting image:</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">docker</span> run -e PASSWORD=<span class="op">&lt;</span>choose_a_password_for_rstudio<span class="op">&gt;</span> -p 8787:8787 YOURDOCKERIMAGENAME</span></code></pre></div>
-<p>Once running, navigate to <a href="https://localhost:8787/" class="uri">https://localhost:8787/</a> and then login with <code>rstudio</code>:<code>yourchosenpassword</code>.</p>
-<p>To try with <strong>this</strong> repository docker image:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">docker</span> run -e PASSWORD=abc -p 8787:8787 seandavi/buildabiocworkshop2020</span></code></pre></div>
-<p><em>NOTE</em>: Running docker that uses the password in plain text like above exposes the password to others in a multi-user system (like a shared workstation or compute node). In practice, consider using an environment variable instead of plain text to pass along passwords and other secrets in docker command lines.</p>
-</div>
-<div id="whatcha-get" class="section level2">
-<h2 class="hasAnchor">
-<a href="#whatcha-get" class="anchor"></a>Whatcha get</h2>
-<p><a href="https://seandavi.github.io/BuildABiocWorkshop2020" class="uri">https://seandavi.github.io/BuildABiocWorkshop2020</a></p>
-<p><img src="https://github.com/seandavi/BuildABiocWorkshop2020/raw/master/inst/images/dockerhub_result.png" alt="dockerhub"></p>
 </div>
 </div>
   </div>
