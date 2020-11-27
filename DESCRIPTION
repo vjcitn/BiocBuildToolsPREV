@@ -1,28 +1,42 @@
-Package: BuildABiocWorkshop2020
-Title: Bioconductor Workshop Template and Github Actions
-Version: 0.1.1
+Package: BiocBuildTools
+Title: Bioconductor software ecosystem building tools
+Version: 0.0.1
 Authors@R: 
-    person(given = "Sean",
-           family = "Davis",
+    person(given = "Vincent",
+           family = "Carey",
            role = c("aut", "cre"),
-           email = "seandavi@gmail.com",
+           email = "stvjc@channing.harvard.edu",
            comment = c(ORCID = "your-orc-id-here"))
-Description: This package serves as a template for using github actions to 
-    prepare a Bioconductor Workshop package for use. In particular,
-    a pkgdown website and docker image are generated based on workflow 
-    settings. 
+Description: This package includes software and documentation related to
+    creation and management of the Bioconductor software ecosystem.
+    A pkgdown website and docker image are generated based on workflow 
+    settings, to help interested developers explore aspects of
+    software ecosystem definition and evolution.  This project was funded
+    in part in the Chan-Zuckerberg Initiative Essential Open Source
+    Software program, SVCF Grant 183436.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
-Depends: 
-    Biobase
+RoxygenNote: 7.1.1
+Depends: R (>= 4.0.0)
 Suggests: 
     knitr,
     rmarkdown,
-    pkgdown
-URL: https://seandavi.github.io/BuildABiocWorkshop2020/
-BugReports: https://github.com/seandavi/BuildABiocWorkshop2020/issues/new/choose
+    rcmdcheck,
+    pkgdown,
+    testthat,
+    BiocStyle,
+    igraph,
+    magrittr,
+    dplyr
+Imports: 
+    BiocPkgTools,
+    pkgbuild,
+    methods,
+    BiocManager,
+    devtools
+URL: https://vjcitn.github.io/BiocBuildTools/
+BugReports: https://github.com/vjcitn/BiocBuildTools/issues/new/choose
 VignetteBuilder: knitr
-DockerImage: seandavi/buildabiocworkshop2020:latest
+DockerImage: vjcitn/biocbuildtools:latest
