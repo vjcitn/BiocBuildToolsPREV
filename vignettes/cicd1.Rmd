@@ -182,6 +182,7 @@ dfc = dd %>% filter(Package %in% bioc_coreset() & dependency %in% bioc_coreset()
 gg = buildPkgDependencyIgraph(dfc)
 plot(gg)
 ```
+
 Some of the packages in the small set are isolated.
 ```{r lkiso}
 setdiff(bioc_coreset(), union(dfc$Package, dfc$dependency))
