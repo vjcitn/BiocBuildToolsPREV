@@ -113,9 +113,7 @@ folder.
 td = tempdir()
 curd = getwd()
 setwd(td)
-if (!file.exists("core_src.zip"))
-   system(paste0("cp ", system.file("core_src.zip", package="BiocBuildTools"), " ", td), intern=TRUE)
-if (!dir.exists("core_src")) unzip("core_src.zip")
+file.copy(system.file("demo_srcs", package="BiocBuildTools"), td, recursive=TRUE)
 setwd(curd) # for knitr
 ```
 
@@ -131,7 +129,7 @@ on package compliance to basic standards.  This runs `R CMD check`
 and organizes the message stream from that process.
 ```{r doch, cache=FALSE}
 setwd(td)
-chk_parody = rcmdcheck::rcmdcheck("core_git/parody", quiet=TRUE)
+chk_parody = rcmdcheck::rcmdcheck("demo_srcs/parody", quiet=TRUE)
 names(chk_parody)
 setwd(curd) # for knitr
 ```
@@ -158,16 +156,16 @@ R packages declare interdependencies explicitly in the `DESCRIPTION`
 file.  An example is
 ```{r lkdesc}
 setwd(td)
-cat(readLines("core_git/Rsamtools/DESCRIPTION"), sep="\n")
+cat(readLines("demo_srcs/HCAExplorer/DESCRIPTION"), sep="\n")
 setwd(curd)
 ```
 The fields `Depends`, `Imports`, `Suggests` and `LinkingTo` define
 the independently maintained packages that must be available for
-`r BiocStyle::Biocpkg("Rsamtools")` to work effectively.  Details on 
+`r BiocStyle::Biocpkg("HCAExplorer")` to work effectively.  Details on 
 these types of dependency are provided in 
 [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html).
 
-We can visualize the interdependencies of the small collection
+We can visualize the interdependencies of a small collection
 using `r BiocStyle::Biocpkg("BiocPkgTools")`.
 
 ```{r getg, fig.height=6}

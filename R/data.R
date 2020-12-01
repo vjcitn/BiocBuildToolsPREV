@@ -39,3 +39,10 @@
 #' @examples
 #' head(soft_2020_04_20)
 "soft_2020_04_20"
+
+#' a list of BiocCheck::BiocCheck results for demonstration purposes, produced nov 2020
+#' @docType data
+#' @format list 
+#' @examples
+#' names(demo_bcchk_out)
+"demo_bcchk_out"

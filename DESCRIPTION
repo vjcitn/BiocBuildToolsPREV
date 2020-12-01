@@ -35,7 +35,9 @@ Imports:
     pkgbuild,
     methods,
     BiocManager,
-    devtools
+    devtools,
+    RSQLite,
+    shiny
 URL: https://vjcitn.github.io/BiocBuildTools/
 BugReports: https://github.com/vjcitn/BiocBuildTools/issues/new/choose
 VignetteBuilder: knitr
