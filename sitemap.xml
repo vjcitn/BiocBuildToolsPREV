@@ -13,6 +13,9 @@
     <loc>https://vjcitn.github.io/BiocBuildTools/reference/bbs_check_built.html</loc>
   </url>
   <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/bcc_to_dataframes.html</loc>
+  </url>
+  <url>
     <loc>https://vjcitn.github.io/BiocBuildTools/reference/bioc_3.10_software_2020.03.17.html</loc>
   </url>
   <url>
@@ -22,6 +25,9 @@
     <loc>https://vjcitn.github.io/BiocBuildTools/reference/bioc_software_packagelist_old.html</loc>
   </url>
   <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/browse_checks.html</loc>
+  </url>
+  <url>
     <loc>https://vjcitn.github.io/BiocBuildTools/reference/build1.html</loc>
   </url>
   <url>
@@ -29,6 +35,9 @@
   </url>
   <url>
     <loc>https://vjcitn.github.io/BiocBuildTools/reference/cov_tab_demo.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/demo_bcchk_out.html</loc>
   </url>
   <url>
     <loc>https://vjcitn.github.io/BiocBuildTools/reference/demo_rcmdchk_out.html</loc>
@@ -59,6 +68,12 @@
   </url>
   <url>
     <loc>https://vjcitn.github.io/BiocBuildTools/reference/soft_2020_04_20.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/status_db_init.html</loc>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/BiocBuildTools/reference/update_status_db.html</loc>
   </url>
   <url>
     <loc>https://vjcitn.github.io/BiocBuildTools/articles/cicd1.html</loc>

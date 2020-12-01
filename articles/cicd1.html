@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">BiocBuildTools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
       </span>
     </div>
 
@@ -92,7 +92,7 @@
       <h1 data-toc-skip>Continuous integration and delivery approaches for Bioconductor</h1>
                         <h4 class="author">Vincent J. Carey, stvjc at channing.harvard.edu</h4>
             
-            <h4 class="date">November 27, 2020</h4>
+            <h4 class="date">December 01, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vjcitn/BiocBuildTools/blob/master/vignettes/cicd1.Rmd"><code>vignettes/cicd1.Rmd</code></a></small>
       <div class="hidden name"><code>cicd1.Rmd</code></div>
@@ -145,12 +145,10 @@
 <code class="sourceCode R"><span class="va">td</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">curd</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">td</span><span class="op">)</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="st">"core_src.zip"</span><span class="op">)</span><span class="op">)</span>
-   <span class="fu"><a href="https://rdrr.io/r/base/system.html">system</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"cp "</span>, <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"core_src.zip"</span>, package<span class="op">=</span><span class="st">"BiocBuildTools"</span><span class="op">)</span>, <span class="st">" "</span>, <span class="va">td</span><span class="op">)</span>, intern<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<pre><code>## character(0)</code></pre>
+<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"demo_srcs"</span>, package<span class="op">=</span><span class="st">"BiocBuildTools"</span><span class="op">)</span>, <span class="va">td</span>, recursive<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.exists</a></span><span class="op">(</span><span class="st">"core_src"</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/unzip.html">unzip</a></span><span class="op">(</span><span class="st">"core_src.zip"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">curd</span><span class="op">)</span> <span class="co"># for knitr</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">curd</span><span class="op">)</span> <span class="co"># for knitr</span></code></pre></div>
 <div id="self-testing" class="section level2">
 <h2 class="hasAnchor">
 <a href="#self-testing" class="anchor"></a>Self-testing</h2>
@@ -158,7 +156,7 @@
 <p>We’ll use the <em><a href="https://CRAN.R-project.org/package=rcmdcheck">rcmdcheck</a></em> package to capture information on package compliance to basic standards. This runs <code>R CMD check</code> and organizes the message stream from that process.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">td</span><span class="op">)</span>
-<span class="va">chk_parody</span> <span class="op">=</span> <span class="fu">rcmdcheck</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rcmdcheck/man/rcmdcheck.html">rcmdcheck</a></span><span class="op">(</span><span class="st">"core_git/parody"</span>, quiet<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">chk_parody</span> <span class="op">=</span> <span class="fu">rcmdcheck</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rcmdcheck/man/rcmdcheck.html">rcmdcheck</a></span><span class="op">(</span><span class="st">"demo_srcs/parody"</span>, quiet<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">chk_parody</span><span class="op">)</span></code></pre></div>
 <pre><code>##  [1] "stdout"       "stderr"       "status"       "duration"     "timeout"     
 ##  [6] "rversion"     "platform"     "errors"       "warnings"     "notes"       
@@ -171,7 +169,7 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>nerr<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">chk_parody</span><span class="op">$</span><span class="va">errors</span><span class="op">)</span>,nwarn<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">chk_parody</span><span class="op">$</span><span class="va">warnings</span><span class="op">)</span>,
 nnote<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">chk_parody</span><span class="op">$</span><span class="va">notes</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>##  nerr nwarn nnote 
-##     1     2     4</code></pre>
+##     1     1     0</code></pre>
 <p>No error was detected, but a warning and several notes were reported. We will look at these in further detail below.</p>
 </div>
 <div id="implicit-interoperability-testing" class="section level2">
@@ -181,40 +179,66 @@ nnote<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/
 <p>R packages declare interdependencies explicitly in the <code>DESCRIPTION</code> file. An example is</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">td</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html">readLines</a></span><span class="op">(</span><span class="st">"core_git/Rsamtools/DESCRIPTION"</span><span class="op">)</span>, sep<span class="op">=</span><span class="st">"\n"</span><span class="op">)</span></code></pre></div>
-<pre><code>## Package: Rsamtools
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html">readLines</a></span><span class="op">(</span><span class="st">"demo_srcs/HCAExplorer/DESCRIPTION"</span><span class="op">)</span>, sep<span class="op">=</span><span class="st">"\n"</span><span class="op">)</span></code></pre></div>
+<pre><code>## Package: HCAExplorer
 ## Type: Package
-## Title: Binary alignment (BAM), FASTA, variant call (BCF), and tabix
-##     file import
-## Version: 2.3.2
-## Author: Martin Morgan, Herv\'e Pag\`es, Valerie Obenchain, Nathaniel
-##     Hayden
-## Maintainer: Bioconductor Package Maintainer
-##     &lt;maintainer@bioconductor.org&gt;
-## Description: This package provides an interface to the 'samtools',
-##     'bcftools', and 'tabix' utilities for manipulating SAM (Sequence
-##     Alignment / Map), FASTA, binary variant call (BCF) and compressed
-##     indexed tab-delimited (tabix) files.
-## URL: http://bioconductor.org/packages/Rsamtools
-## License: Artistic-2.0 | file LICENSE
-## LazyLoad: yes
-## Depends: methods, GenomeInfoDb (&gt;= 1.1.3), GenomicRanges (&gt;= 1.31.8),
-##     Biostrings (&gt;= 2.47.6)
-## Imports: utils, BiocGenerics (&gt;= 0.25.1), S4Vectors (&gt;= 0.17.25),
-##     IRanges (&gt;= 2.13.12), XVector (&gt;= 0.19.7), zlibbioc, bitops,
-##     BiocParallel
-## Suggests: GenomicAlignments, ShortRead (&gt;= 1.19.10), GenomicFeatures,
-##     TxDb.Dmelanogaster.UCSC.dm3.ensGene, KEGG.db,
-##     TxDb.Hsapiens.UCSC.hg18.knownGene, RNAseqData.HNRNPC.bam.chr14,
-##     BSgenome.Hsapiens.UCSC.hg19, RUnit, BiocStyle
-## LinkingTo: Rhtslib (&gt;= 1.17.7), S4Vectors, IRanges, XVector, Biostrings
-## SystemRequirements: GNU make
-## biocViews: DataImport,  Sequencing, Coverage, Alignment, QualityControl
-## Video: https://www.youtube.com/watch?v=Rfon-DQYbWA&amp;list=UUqaMSQd_h-2EDGsU6WDiX0Q</code></pre>
+## Title: Browse the Human Cell Atlas data portal
+## Version: 1.5.0
+## Authors@R: c(
+##     person(
+##         "Daniel", "Van Twisk",
+##         email = "Daniel.VanTwisk@RoswellPark.org",
+##         role = "aut"
+##     ),
+##     person(
+##         "Martin", "Morgan",
+##         email = "Martin.Morgan@RoswellPark.org",
+##         role = "aut"
+##     ),
+##     person(
+##         "Bioconductor Package", "Maintainer",
+##         email = "maintainer@bioconductor.org",
+##         role = "cre"
+##     ))
+## Description: Search, browse, reference, and download resources from
+##     the Human Cell Atlas data portal. Development of this package is
+##     supported through funds from the Chan / Zuckerberg initiative.
+## Depends: R (&gt;= 3.6.0),
+##          dplyr
+## Imports: BiocFileCache,
+##          HCAMatrixBrowser,
+##          S4Vectors,
+##          LoomExperiment,
+##          vctrs,
+##          curl,
+##          httr,
+##          jsonlite,
+##          methods,
+##          plyr,
+##          readr,
+##          rlang,
+##          tibble,
+##          tidygraph,
+##          utils,
+##          xml2
+## Suggests: 
+##     BiocStyle,
+##     knitr,
+##     rmarkdown,
+##     testthat (&gt;= 2.1.0)
+## License: Artistic-2.0
+## Encoding: UTF-8
+## LazyData: true
+## URL: https://github.com/Bioconductor/HCABrowser
+## RoxygenNote: 7.1.0
+## biocViews: DataImport, Sequencing
+## BugReports:
+##     https://github.com/Bioconductor/HCABrowser/issues
+## VignetteBuilder: knitr</code></pre>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">curd</span><span class="op">)</span></code></pre></div>
-<p>The fields <code>Depends</code>, <code>Imports</code>, <code>Suggests</code> and <code>LinkingTo</code> define the independently maintained packages that must be available for <em><a href="https://bioconductor.org/packages/3.13/Rsamtools">Rsamtools</a></em> to work effectively. Details on these types of dependency are provided in <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R Extensions</a>.</p>
-<p>We can visualize the interdependencies of the small collection using <em><a href="https://bioconductor.org/packages/3.13/BiocPkgTools">BiocPkgTools</a></em>.</p>
+<p>The fields <code>Depends</code>, <code>Imports</code>, <code>Suggests</code> and <code>LinkingTo</code> define the independently maintained packages that must be available for <em><a href="https://bioconductor.org/packages/3.13/HCAExplorer">HCAExplorer</a></em> to work effectively. Details on these types of dependency are provided in <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R Extensions</a>.</p>
+<p>We can visualize the interdependencies of a small collection using <em><a href="https://bioconductor.org/packages/3.13/BiocPkgTools">BiocPkgTools</a></em>.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressMessages</a></span><span class="op">(</span><span class="op">{</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/seandavi/BiocPkgTools">BiocPkgTools</a></span><span class="op">)</span>

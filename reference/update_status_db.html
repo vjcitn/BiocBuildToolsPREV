@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>define a small collection of packages of interest — bioc_coreset • BiocBuildTools</title>
+<title>add a dataframe, optionally purging related obsolete records, to a SQLite database — update_status_db • BiocBuildTools</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="define a small collection of packages of interest — bioc_coreset" />
-<meta property="og:description" content="define a small collection of packages of interest" />
+<meta property="og:title" content="add a dataframe, optionally purging related obsolete records, to a SQLite database — update_status_db" />
+<meta property="og:description" content="add a dataframe, optionally purging related obsolete records, to a SQLite database" />
 
 
 
@@ -133,29 +133,53 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>define a small collection of packages of interest</h1>
-    <small class="dont-index">Source: <a href='https://github.com/vjcitn/BiocBuildTools/blob/master/R/coreset.R'><code>R/coreset.R</code></a></small>
-    <div class="hidden name"><code>bioc_coreset.Rd</code></div>
+    <h1>add a dataframe, optionally purging related obsolete records, to a SQLite database</h1>
+    <small class="dont-index">Source: <a href='https://github.com/vjcitn/BiocBuildTools/blob/master/R/update_status_db.R'><code>R/update_status_db.R</code></a></small>
+    <div class="hidden name"><code>update_status_db.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>define a small collection of packages of interest</p>
+    <p>add a dataframe, optionally purging related obsolete records, to a SQLite database</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bioc_coreset</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>update_status_db</span><span class='op'>(</span>
+  <span class='va'>sqlite_filename</span>,
+  <span class='va'>tablename</span>,
+  dropfield <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>dropvalue</span>,
+  <span class='va'>newdf</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>sqlite_filename</th>
+      <td><p>character(1) filename of SQLite database; database must exist</p></td>
+    </tr>
+    <tr>
+      <th>tablename</th>
+      <td><p>character(1) name of table to operate on</p></td>
+    </tr>
+    <tr>
+      <th>dropfield</th>
+      <td><p>character(1) or NULL, the field used to select records to delete</p></td>
+    </tr>
+    <tr>
+      <th>dropvalue</th>
+      <td><p>character(1) only used if <code>dropfield</code> is not NULL, value used to
+select records for deletion</p></td>
+    </tr>
+    <tr>
+      <th>newdf</th>
+      <td><p>data.frame conforming to the table in <code>tablename</code> if such exists</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>a character vector</p>
+    <p>Connects to db with flag SQLITE_RW and disconnects on exit.</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>bioc_coreset</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "SummarizedExperiment" "GenomicRanges"        "BiocFileCache"       
-#&gt;  [4] "Rsamtools"            "rhdf5"                "GEOquery"            
-#&gt;  [7] "SingleCellExperiment" "ensembldb"            "parody"              
-#&gt; [10] "DESeq2"               "EDASeq"               "HCAExplorer"         
-#&gt; [13] "bsseq"               </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
