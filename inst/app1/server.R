@@ -1,5 +1,9 @@
 # from flexshi.R 25 dec 2019
 
+library(RSQLite)
+if (!exists("con")) con = dbConnect(SQLite(), system.file("sqlite/demo2.sqlite", package="BiocBuildTools"))
+
+
     server = function(input, output) {
        load(system.file("pkgnet/demo_pnet2.rda", package="BiocBuildTools"))
        output$error = renderPrint({

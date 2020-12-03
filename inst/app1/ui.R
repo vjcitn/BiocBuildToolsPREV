@@ -1,3 +1,5 @@
+library(RSQLite)
+if (!exists("con")) con = dbConnect(SQLite(), system.file("sqlite/demo2.sqlite", package="BiocBuildTools"))
     basic = RSQLite::dbReadTable(con, "basic")
 
     ui = fluidPage(
@@ -8,6 +10,10 @@
         helpText("by R CMD check and BiocCheck are available in tabs."),
         helpText(" "),
         helpText("The pkgnet package-dependency analysis is in depnet tab."),
+        helpText("The pkgnet function-dependency analysis is in funnet tab."),
+        helpText(" "),
+        helpText("Network displays below tables in these pkgnet tabs are zoomable visNetwork widgets."),
+        helpText(" "),
         selectInput("pkchoice", "Select a package", choices=sort(basic$package), selected=sort(basic$package)[1]),
         actionButton("stopBtn", "Stop app."),
         width=3
