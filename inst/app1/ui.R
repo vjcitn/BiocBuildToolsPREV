@@ -10,13 +10,15 @@
          ),
         mainPanel(tabsetPanel(
          tabPanel("description", verbatimTextOutput("desc")),
-         tabPanel("error", verbatimTextOutput("error")),
-         tabPanel("warnings", verbatimTextOutput("warn")),
-         tabPanel("notes", verbatimTextOutput("notes")),
-         tabPanel("bcerror", verbatimTextOutput("bcerror")),
-         tabPanel("bcwarn", verbatimTextOutput("bcwarn")),
-         tabPanel("bcnotes", verbatimTextOutput("bcnotes")),
-         tabPanel("testcov", DT::dataTableOutput("testcov")),
+         tabPanel("Rerr", verbatimTextOutput("error")),
+         tabPanel("Rwarn", verbatimTextOutput("warn")),
+         tabPanel("Rnote", verbatimTextOutput("notes")),
+         tabPanel("BCerr", verbatimTextOutput("bcerror")),
+         tabPanel("BCwarn", verbatimTextOutput("bcwarn")),
+         tabPanel("BCnote", verbatimTextOutput("bcnotes")),
+         tabPanel("covg", DT::dataTableOutput("testcov")),
+         tabPanel("pnet", visNetwork::visNetworkOutput("pnet")),
+         tabPanel("depwdg", DT::dataTableOutput("depwidg")),
          tabPanel("about", uiOutput("about"))
          )
         )

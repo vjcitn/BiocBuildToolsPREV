@@ -46,3 +46,4 @@
 #' @examples
 #' names(demo_bcchk_out)
 "demo_bcchk_out"
+

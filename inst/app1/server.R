@@ -1,6 +1,7 @@
 # from flexshi.R 25 dec 2019
 
     server = function(input, output) {
+       load(system.file("pkgnet/demo_pnet.rda", package="BiocBuildTools"))
        output$error = renderPrint({
            tmp = RSQLite::dbGetQuery(con, paste0("select * from errors where package = '", input$pkchoice, "'"))
            cat(tmp[[2]], sep="\n---\n")
@@ -41,6 +42,13 @@
               ) # end ul
              )  # end helpText
            }) 
+        output$pnet = visNetwork::renderVisNetwork({
+           load(system.file("pkgnet/demo_pnet.rda", package="BiocBuildTools"))
+           demo_pnet[[input$pkchoice]]$dep$graph_viz
+           })
+        output$depwidg = htmlwidgets::shinyRenderWidget(
+             demo_pnet[[input$pkchoice]]$dep$get_summary_view(),
+             DT::dataTableOutput, environment(), FALSE)
         observeEvent(input$stopBtn, {
             dbDisconnect(con)
             stopApp(returnValue = NULL)
