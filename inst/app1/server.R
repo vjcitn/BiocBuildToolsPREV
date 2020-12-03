@@ -1,7 +1,7 @@
 # from flexshi.R 25 dec 2019
 
     server = function(input, output) {
-       load(system.file("pkgnet/demo_pnet.rda", package="BiocBuildTools"))
+       load(system.file("pkgnet/demo_pnet2.rda", package="BiocBuildTools"))
        output$error = renderPrint({
            tmp = RSQLite::dbGetQuery(con, paste0("select * from errors where package = '", input$pkchoice, "'"))
            cat(tmp[[2]], sep="\n---\n")
@@ -43,11 +43,18 @@
              )  # end helpText
            }) 
         output$pnet = visNetwork::renderVisNetwork({
-           load(system.file("pkgnet/demo_pnet.rda", package="BiocBuildTools"))
-           demo_pnet[[input$pkchoice]]$dep$graph_viz
+           load(system.file("pkgnet/demo_pnet2.rda", package="BiocBuildTools"))
+           demo_pnet2[[input$pkchoice]]$dep$graph_viz
+           })
+        output$pnetfun = visNetwork::renderVisNetwork({
+           load(system.file("pkgnet/demo_pnet2.rda", package="BiocBuildTools"))
+           demo_pnet2[[input$pkchoice]]$fun$graph_viz
            })
         output$depwidg = htmlwidgets::shinyRenderWidget(
-             demo_pnet[[input$pkchoice]]$dep$get_summary_view(),
+             demo_pnet2[[input$pkchoice]]$dep$get_summary_view(),
+             DT::dataTableOutput, environment(), FALSE)
+        output$funwidg = htmlwidgets::shinyRenderWidget(
+             demo_pnet2[[input$pkchoice]]$fun$get_summary_view(),
              DT::dataTableOutput, environment(), FALSE)
         observeEvent(input$stopBtn, {
             dbDisconnect(con)

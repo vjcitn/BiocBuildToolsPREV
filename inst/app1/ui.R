@@ -4,6 +4,10 @@
       sidebarLayout(
        sidebarPanel( 
         helpText("BiocBuildTools browse_checks"),
+        helpText("reports on errors, warnings, and notes produced"),
+        helpText("by R CMD check and BiocCheck are available in tabs."),
+        helpText(" "),
+        helpText("The pkgnet package-dependency analysis is in depnet tab."),
         selectInput("pkchoice", "Select a package", choices=sort(basic$package), selected=sort(basic$package)[1]),
         actionButton("stopBtn", "Stop app."),
         width=3
@@ -17,8 +21,11 @@
          tabPanel("BCwarn", verbatimTextOutput("bcwarn")),
          tabPanel("BCnote", verbatimTextOutput("bcnotes")),
          tabPanel("covg", DT::dataTableOutput("testcov")),
-         tabPanel("pnet", visNetwork::visNetworkOutput("pnet")),
-         tabPanel("depwdg", DT::dataTableOutput("depwidg")),
+#         tabPanel("pnet", visNetwork::visNetworkOutput("pnet")),
+         tabPanel("depnet", DT::dataTableOutput("depwidg"),
+          visNetwork::visNetworkOutput("pnet")),
+         tabPanel("funnet", DT::dataTableOutput("funwidg"),
+          visNetwork::visNetworkOutput("pnetfun")),
          tabPanel("about", uiOutput("about"))
          )
         )
