@@ -1,7 +1,7 @@
 # from flexshi.R 25 dec 2019
 
-library(RSQLite)
-if (!exists("con")) con = dbConnect(SQLite(), system.file("sqlite/demo2.sqlite", package="BiocBuildTools"))
+    library(RSQLite)
+    con = dbConnect(SQLite(), system.file("sqlite/demo2.sqlite", package="BiocBuildTools"))
 
 
     server = function(input, output) {

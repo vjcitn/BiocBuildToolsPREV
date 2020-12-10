@@ -1,5 +1,5 @@
 library(RSQLite)
-if (!exists("con")) con = dbConnect(SQLite(), system.file("sqlite/demo2.sqlite", package="BiocBuildTools"))
+    con = dbConnect(SQLite(), system.file("sqlite/demo2.sqlite", package="BiocBuildTools"))
     basic = RSQLite::dbReadTable(con, "basic")
 
     ui = fluidPage(
