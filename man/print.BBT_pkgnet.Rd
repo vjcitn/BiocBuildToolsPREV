@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{x}{BBT_pkgnet instance}
+
+\item{\dots}{not used}
 }
 \description{
 compact view of a pkgnet list

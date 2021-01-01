@@ -36,6 +36,7 @@ make_pnet_object = function(src_folders, target=NULL) {
 
 #' compact view of a pkgnet list
 #' @param x BBT_pkgnet instance
+#' @param \dots not used
 #' @export
 print.BBT_pkgnet = function(x, ...) {
  cat("BBT_pkgnet instance.\n")
