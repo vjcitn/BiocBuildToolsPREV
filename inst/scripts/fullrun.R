@@ -3,10 +3,10 @@ library(BiocBuildTools)
 library(RSQLite)
 ps = PackageSet(bioc_coreset())
 print(ps@pkgnames)
-tag = "demo12"
+tag = "demo14"
 gitfolder = paste0("/tmp/", tag, "_srcs")
 sqlitetarget = paste0("/tmp/", tag, ".sqlite")
-pnettarget = paste0("/tmp/", tag, "_pnet.rda")
+pnettarget = paste0("/tmp/", tag, "_pnet.rds")
 populate_local_gits(ps, gitfolder)
 alldirs = dir(gitfolder, full=TRUE)
 
