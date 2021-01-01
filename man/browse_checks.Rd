@@ -4,10 +4,12 @@
 \alias{browse_checks}
 \title{developer report on package check process in shiny}
 \usage{
-browse_checks(con)
+browse_checks(con, pnet_obj)
 }
 \arguments{
 \item{con}{SQLiteConnection where tables of check results from rcmdcheck, etc., are stored}
+
+\item{pnet_obj}{list as created by \code{make_pnet_obj}}
 }
 \description{
 developer report on package check process in shiny
@@ -22,8 +24,9 @@ where \code{shiny::runApp()} is executed.
 \examples{
 if (interactive()) {
  con = RSQLite::dbConnect(RSQLite::SQLite(), 
-  system.file("sqlite/demo2.sqlite", package="BiocBuildTools"), flags=RSQLite::SQLITE_RO)
+  system.file("sqlite/demo9.sqlite", package="BiocBuildTools"), flags=RSQLite::SQLITE_RO)
  print(RSQLite::dbListTables(con))
- browse_checks(con)
+ load(system.file("pkgnet/demo_pnet2.rda", package="BiocBuildTools"))
+ browse_checks(con, demo_pnet2)
 }
 }

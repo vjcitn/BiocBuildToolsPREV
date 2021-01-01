@@ -1,12 +1,12 @@
 stopifnot(version$version.string >= "4.1")
-source("fulfill_deps.R")
 library(BiocBuildTools)
 library(RSQLite)
-ps = PackageSet(bioc_coreset()[c(1,3,4)])
+ps = PackageSet(bioc_coreset())
 print(ps@pkgnames)
-tag = "demo9"
+tag = "demo12"
 gitfolder = paste0("/tmp/", tag, "_srcs")
 sqlitetarget = paste0("/tmp/", tag, ".sqlite")
+pnettarget = paste0("/tmp/", tag, "_pnet.rda")
 populate_local_gits(ps, gitfolder)
 alldirs = dir(gitfolder, full=TRUE)
 
@@ -17,19 +17,6 @@ alldirs = dir(gitfolder, full=TRUE)
 #"version", "cran", "bioc", "checkdir", "test_fail", "install_out", 
 #"session_info", "cleaner")
 #
-
-safe_rcmdcheck = function(x, error="never", ...) {
-  pkg = basename(x)
-  desc = readLines(paste0(x, "/DESCRIPTION"))
-  d = read.dcf(textConnection(desc))
-  vers = d[,"Version"]
-  basic = capture.output(tmp <- try(rcmdcheck::rcmdcheck(x, error=error, ...)))
-  if (!inherits(tmp, "try-error")) return(tmp)
-  inst_out = "rcmdcheck threw error"
-  ans = list(package=pkg, errors=basic, warnings="chk threw error", notes="rcmdcheck threw error",
-     install_out=inst_out, description=desc, version=vers)
-  ans
-}
 
 fullrun = function(srcs, target_sqlite_path) {
      ii = rownames(installed.packages())
@@ -52,6 +39,9 @@ fullrun = function(srcs, target_sqlite_path) {
     
     covs_to_dataframes = function(clist) {
       tmp = lapply(clist, function(x) {
+           if (is.na(x$filecoverage)) {
+             return(data.frame(file=NA, coverage_pct=NA))
+             }
            fls = names(x$filecoverage)
            pcts = as.numeric(x$filecoverage)
            data.frame(file=fls, coverage_pct=pcts)
@@ -71,6 +61,7 @@ fullrun = function(srcs, target_sqlite_path) {
     status_db_init(target_sqlite_path, rcdfs)
     status_db_init(target_sqlite_path, bcdfs, exists_ok=TRUE)
     status_db_init(target_sqlite_path, cvdfs, exists_ok=TRUE)
+    try(make_pnet_object(srcs, target=pnettarget))
 }
 fullrun(alldirs, sqlitetarget)
     

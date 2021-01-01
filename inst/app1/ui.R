@@ -1,5 +1,4 @@
 library(RSQLite)
-    con = dbConnect(SQLite(), system.file("sqlite/demo2.sqlite", package="BiocBuildTools"))
     basic = RSQLite::dbReadTable(con, "basic")
 
     ui = fluidPage(
