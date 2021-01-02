@@ -4,7 +4,7 @@
 \alias{fulfill_deps}
 \title{use BiocManager::install to get any unavailable dependencies as defined by BiocPkgTools}
 \usage{
-fulfill_deps(pkg, depdf = NULL, exclude = "KEGG.db")
+fulfill_deps(pkg, depdf = NULL, exclude = "KEGG.db", ...)
 }
 \arguments{
 \item{pkg}{character(1) name of package}
@@ -13,6 +13,8 @@ fulfill_deps(pkg, depdf = NULL, exclude = "KEGG.db")
 
 \item{exclude}{character() of uninstalled packages to be ignored -- BiocManager::install is slow
 to deal with an unavailable package}
+
+\item{\dots}{passed to BiocManager::install}
 }
 \description{
 use BiocManager::install to get any unavailable dependencies as defined by BiocPkgTools
