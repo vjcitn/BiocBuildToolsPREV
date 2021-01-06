@@ -3,7 +3,7 @@ library(BiocBuildTools)
 library(RSQLite)
 ps = PackageSet(bioc_coreset())
 print(ps@pkgnames)
-tag = "demo14"
+tag = "demo16"
 gitfolder = paste0("/tmp/", tag, "_srcs")
 sqlitetarget = paste0("/tmp/", tag, ".sqlite")
 pnettarget = paste0("/tmp/", tag, "_pnet.rds")

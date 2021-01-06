@@ -19,14 +19,15 @@ dbDisconnect is run if the stop button is pressed to end shiny session.  If
 stopped via ctrl-C or error, the connection may remain and require closure.  N.B.  The
 source codes for this app are in inst/app1, to simplify contribution to shinyapps.io.
 Interactive execution proceeds by copying the server and ui files to temporary folder
-where \code{shiny::runApp()} is executed.
+where \code{shiny::runApp()} is executed.  For some packages for which tests do not succeed
+coverage statistics derived by pkgnet will be absent.
 }
 \examples{
 if (interactive()) {
  con = RSQLite::dbConnect(RSQLite::SQLite(), 
-  system.file("sqlite/demo9.sqlite", package="BiocBuildTools"), flags=RSQLite::SQLITE_RO)
+  system.file("sqlite/demo16.sqlite", package="BiocBuildTools"), flags=RSQLite::SQLITE_RO)
  print(RSQLite::dbListTables(con))
- load(system.file("pkgnet/demo_pnet2.rda", package="BiocBuildTools"))
+ demo_pnet2 = readRDS(system.file("pkgnet/demo16_pnet.rds", package="BiocBuildTools"))
  browse_checks(con, demo_pnet2)
 }
 }

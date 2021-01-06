@@ -23,10 +23,14 @@ make_pnet_object = function(src_folders, target=NULL) {
   names(pn[[i]]) = c("dep", "fun")
   pn[[i]][["dep"]] = DependencyReporter$new()
   pn[[i]][["dep"]]$set_package(bn[i], src_folders[i])
-  pn[[i]][["dep"]]$calculate_default_measures()
+  try({
+   pn[[i]][["dep"]]$calculate_default_measures()
+  })
   pn[[i]][["fun"]] = FunctionReporter$new()
   pn[[i]][["fun"]]$set_package(bn[i], src_folders[i])
-  pn[[i]][["fun"]]$calculate_default_measures()
+  try({
+   pn[[i]][["fun"]]$calculate_default_measures()
+  })
   }
  names(pn) = bn
  class(pn) = c("BBT_pkgnet", class(pn))
